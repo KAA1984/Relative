@@ -1,5 +1,7 @@
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -19,8 +21,9 @@ public class Main {
         relatives.add(daugther);
 
             for(People person:relatives){
-                Writer.writer(person);
+                Writepeople.writer(relatives);
                 System.out.println(person);
             }
+
       }
 }
