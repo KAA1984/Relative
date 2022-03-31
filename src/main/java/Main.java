@@ -1,7 +1,6 @@
+import com.fasterxml.uuid.Generators;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -9,10 +8,17 @@ import java.util.UUID;
 public class Main {
     public static void main(String [] args) throws IOException {
 
-        People dad = new People(UUID.randomUUID().toString(),"Anatoliy","Kalistratov");
-        People mother = new People(UUID.randomUUID().toString(),"Elena","Kalistratova");
-        People son = new People(UUID.randomUUID().toString(),"Andrey","Kalistratov");
-        People daugther = new People(UUID.randomUUID().toString(),"Oxana","Kalistratova");
+        String fatherIdAsString ="father_ID";
+        String motherIdAsString ="mother_ID";
+        UUID fatherID = UUID.nameUUIDFromBytes(fatherIdAsString.getBytes());
+        UUID motherID = UUID.nameUUIDFromBytes(motherIdAsString.getBytes());
+
+
+        People dad = new People(fatherID,"Anatoliy","Kalistratov",null,null);
+        People mother = new People(motherID,"Elena","Kalistratova",null,null);
+        People son = new People(UUID.randomUUID(),"Andrey","Kalistratov",fatherID,motherID);
+        People daugther = new People(UUID.randomUUID(),"Oxana","Kalistratova",fatherID,motherID);
+
 
         List<People> relatives = new ArrayList<>();
         relatives.add(dad);
@@ -26,4 +32,5 @@ public class Main {
             }
 
       }
+
 }
